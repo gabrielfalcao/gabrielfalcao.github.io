@@ -1,0 +1,28 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><meta content="Blog of Gabriel Falcão G. DeMoura, author of python open source projects HTTPretty, Sure. Original author of Guake Terminal and several other open source projects in the programming languages: Rust, Python, Typescript, Javascript and more. Gabriel Falcão G. DeMoura is also a music producer known by the moniker: Wave Mandala. He is also a blender artist and plugin-maker." name=description><title></title><link href="https://gabrielfalcao.github.io/style.css?h=57dcefe6d6197def0bc3" rel=stylesheet><link title=" - Atom Feed" href=https://gabrielfalcao.github.io/atom.xml rel=alternate type=application/atom+xml><meta content=Gabriel property=profile:first_name><meta content="Falcão G. DeMoura" property=profile:last_name><meta content=gabrielfalcao property=profile:username><meta content=male property=profile:gender><meta content=berlin.jpeg property=og:image><meta content=avatars-000296788270-31yr5r-t1080x1080.jpg property=og:image><meta content=berlin-tiles.jpeg property=og:image><meta content=pixel-art-2017.png property=og:image><meta content=pixel-art-ny-eve.png property=og:image><meta content=pixel-art-berlin.png property=og:image><meta content=norwegerstrasse.jpeg property=og:image><meta content=cgc-skull-badge.jpg property=og:image><meta content=cgc-skull-badge-cropped.jpg property=og:image><meta content=g-cleft-sq.png property=og:image><meta content=avatar-mohawk-right-a-front.png property=og:image><meta content=mandala-flying-concrete.png property=og:image><meta content=85057529_288x288.jpeg property=og:image><body><header class=space><h1></h1><nav class=header-links><a href=https://github.com/gabrielfalcao>GitHub</a><a href=https://www.linkedin.com/in/gabrielfalcao/>LinkedIn</a><a href=https://twitter.com/gabrielfalcao>Twitter</a><a href=https://instagram.com/gabrielfalcao>Instagram</a><a href=https://keybase.com/gabrielfalcao>Keybase</a><a href=mailto:gabrielteratos@gmail.com>Mail</a><a href=https://soundcloud.com/wave-mandala>Sound Cloud</a></nav></header><main><div class=space><h1 id=gabrielfalcao>@gabrielfalcao</h1><h4 id=goto>Goto</h4><ul><li><a href=/blog/>blog</a><li><a href=/blog/tags>tags</a><li><a href=/music/>music</a><li><a href=/blender/>blender</a><li><a href=/atom.xml>feed</a></ul></div><h2>Recent posts</h2><ul><li><a href=https://gabrielfalcao.github.io/blog/cross-compiling-rust-to-openwrt-mipsel-unknown-linux-musl-on-macos-sequoia-with-utm-virtual-machine/>Cross Compiling Rust To openwrt `mipsel-unknown-linux-musl` on Mac OS Sequoia with UTM virtual machine</a><li><a href=https://gabrielfalcao.github.io/blog/you-should-switch-from-jq-to-jaq/>You should Switch From jq to jaq</a></ul><p><a href=https://gabrielfalcao.github.io/blog/>Archive</a></main><div class=dark-mode-buttons><button class=dark-mode-button id=dark-mode-on><img alt="Dark mode" aria-label="dark mode toggle" title="Dark mode" height=24 src=https://gabrielfalcao.github.io/dark_mode.svg width=24></button><button class=dark-mode-button id=dark-mode-off><img alt="Light mode" aria-label="light mode toggle" title="Light mode" height=24 src=https://gabrielfalcao.github.io/light_mode.svg width=24></button></div><script>const cls = document.querySelector("html").classList;
+        const sessionTheme = sessionStorage.getItem("theme");
+
+        function setDark() {
+            cls.add("dark-mode");
+            cls.remove("light-mode");
+            sessionStorage.setItem("theme", "dark");
+        }
+        function setLight() {
+            cls.add("light-mode");
+            cls.remove("dark-mode");
+            sessionStorage.setItem("theme", "light");
+        }
+
+        if (sessionTheme === "dark") {
+            setDark();
+        } else if (sessionTheme === "light") {
+            setLight();
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setDark();
+        }
+
+        document.getElementById("dark-mode-on").addEventListener("click", function(e) {
+            setDark();
+        });
+        document.getElementById("dark-mode-off").addEventListener("click", function(e) {
+            setLight();
+        });</script><noscript><style>.dark-mode-buttons{display:none}</style></noscript>

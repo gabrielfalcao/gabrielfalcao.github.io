@@ -1,0 +1,73 @@
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+# The URL the site will be built for
+title = ""
+description = "Blog of Gabriel Falcão G. DeMoura, author of python open source projects HTTPretty, Sure. Original author of Guake Terminal and several other open source projects in the programming languages: Rust, Python, Typescript, Javascript and more. Gabriel Falcão G. DeMoura is also a music producer known by the moniker: Wave Mandala. He is also a blender artist and plugin-maker."
+base_url = "https://gabrielfalcao.github.io"
+feed_filenames = ["atom.xml"]
+generate_feeds = true
+minify_html = true
+default_language = "en"
+generate_sitemap = true
+generate_robots_txt = true
+
+theme = "hook"
+
+
+
+taxonomies = [
+  {name = "tags", feed = true}, # each tag will have its own feed
+  {name = "tags"}, # you can have taxonomies with the same name in multiple languages
+  {name = "categories", paginate_by = 6},  # 6 items per page for a term
+]
+taxonomy_root = "blog"
+
+# https://www.google.com/search?q=example+usage+of+seo+tags+user+profile&num=10&sca_esv=76af09d4a1c69f5c&sxsrf=APpeQnue6Irc3Q22vClBoHwLYayNeK8FRA%3A1783037700649&ei=BP9Gas2PJ83C5OUP67GW4A8&biw=1440&bih=788&ved=0ahUKEwjNoZKGnbWVAxVNIbkGHeuYBfwQ4dUDCBI&uact=5&oq=example+usage+of+seo+tags+user+profile&gs_lp=Egxnd3Mtd2l6LXNlcnAiJmV4YW1wbGUgdXNhZ2Ugb2Ygc2VvIHRhZ3MgdXNlciBwcm9maWxlMgUQABjvBTIFEAAY7wUyBRAAGO8FMgUQABjvBTIFEAAY7wVItDBQ-A9Y_C5wAXgBkAEAmAGdAaABsRGqAQQwLjE3uAEDyAEA-AEBmAIKoALWCcICChAAGEcY1gQYsAPCAggQABiABBiiBJgDAIgGAZAGCJIHAzEuOaAH4DayBwMwLjm4B8wJwgcFMC4xLjnIByeACAE&sclient=gws-wiz-serp
+# https://profilegrid.co/how-setup-wordpress-seo-for-your-user-profiles/
+# https://trailhead.salesforce.com/content/learn/modules/b2c-seo-meta-tags/b2c-seo-meta-tag-explore-rules
+# https://www.clickrank.ai/html-tags-for-seo/
+# https://github.com/getzola/zola
+# https://www.getzola.org/documentation/themes/installing-and-using-themes/
+
+[markdown]
+render_emoji = false
+external_links_target_blank = true
+
+external_links_no_follow = false
+# It tells search engine crawlers (like Google) not to follow the link or use it for page ranking calculations
+
+
+external_links_no_referrer = false
+# According to the MDN Web Docs definition, rel="noreferrer" is an HTML attribute value that hides referrer information
+# and enhances security when a user navigates to an external link
+
+
+external_links_external = false
+# According to the MDN Web Docs rel attribute reference, the rel="external" attribute indicates that the referenced
+# document is not part of the current site
+
+
+# Explicit Examples
+# [Visit External Site](https://example.com){rel="external nofollow"}
+
+
+
+[markdown.highlighting]
+theme = "monokai"
+
+[extra]
+# Put all your custom variables here
+
+links = [
+    { title = "GitHub", href = "https://github.com/gabrielfalcao" },
+    { title = "LinkedIn", href = "https://www.linkedin.com/in/gabrielfalcao/" },
+    { title = "Twitter", href = "https://twitter.com/gabrielfalcao" },
+    { title = "Instagram", href = "https://instagram.com/gabrielfalcao" },
+    { title = "Keybase", href = "https://keybase.com/gabrielfalcao" },
+    { title = "Mail", href = "mailto:gabrielteratos@gmail.com" },
+    { title = "Sound Cloud", href = "https://soundcloud.com/wave-mandala" },
+]

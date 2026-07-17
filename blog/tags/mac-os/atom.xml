@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - mac os</title>
+    <subtitle>Blog of Gabriel Falcão G. DeMoura, author of python open source projects HTTPretty, Sure. Original author of Guake Terminal and several other open source projects in the programming languages: Rust, Python, Typescript, Javascript and more. Gabriel Falcão G. DeMoura is also a music producer known by the moniker: Wave Mandala. He is also a blender artist and plugin-maker.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://gabrielfalcao.github.io/blog/tags/mac-os/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://gabrielfalcao.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-07-17T00:00:00+00:00</updated>
+    <id>https://gabrielfalcao.github.io/blog/tags/mac-os/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Cross Compiling Rust To openwrt `mipsel-unknown-linux-musl` on Mac OS Sequoia with UTM virtual machine</title>
+        <published>2026-07-17T00:00:00+00:00</published>
+        <updated>2026-07-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://gabrielfalcao.github.io/blog/cross-compiling-rust-to-openwrt-mipsel-unknown-linux-musl-on-macos-sequoia-with-utm-virtual-machine/"/>
+        <id>https://gabrielfalcao.github.io/blog/cross-compiling-rust-to-openwrt-mipsel-unknown-linux-musl-on-macos-sequoia-with-utm-virtual-machine/</id>
+        
+        <content type="html" xml:base="https://gabrielfalcao.github.io/blog/cross-compiling-rust-to-openwrt-mipsel-unknown-linux-musl-on-macos-sequoia-with-utm-virtual-machine/">&lt;p&gt;At the time of this writting, rust support to
+&lt;code&gt;mipsel-unknown-linux-gnu&lt;&#x2F;code&gt; has &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;rustc&#x2F;platform-support&#x2F;mipsel-unknown-linux-gnu.html&quot;&gt;dropped to Tier 3&lt;&#x2F;a&gt;
+so using a linux VM is pretty much the best choice you have if you
+want to compile rust code for mips. Unless your OS is linux, and
+better yet, if you&#x27;re running Debian, you can skip all the sections
+below regarding VM and use ansible to provision your own working
+environment.&lt;&#x2F;p&gt;
+&lt;p&gt;The sections 1 through 3 below are tried and true if you&#x27;re working from Mac OS.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-install-utm&quot;&gt;1. Install UTM&lt;&#x2F;h2&gt;
+&lt;p&gt;Download and install UTM from &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;mac.getutm.app&quot;&gt;https:&#x2F;&#x2F;mac.getutm.app&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-download-debian-13-trixie-image&quot;&gt;2. Download Debian 13 (Trixie) image&lt;&#x2F;h2&gt;
+&lt;p&gt;Download debian image from &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;cdimage.debian.org&#x2F;debian-cd&#x2F;current&#x2F;arm64&#x2F;iso-cd&#x2F;debian-13.6.0-arm64-netinst.iso&quot;&gt;https:&#x2F;&#x2F;cdimage.debian.org&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-create-a-new-vm-set-network-mode-to-bridged&quot;&gt;3. Create a new VM, set network mode to bridged&lt;&#x2F;h2&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;https:&#x2F;&#x2F;mac.getutm.app&#x2F;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;&#x2F;strong&gt;
+After creating the VM you must install Debian from the iso obtained on
+step 2. The VM should have storage of at least 30GB, you might
+consider defining a larger storage if you plan on building large mips
+projects. But to build small rust projects to mips 30gb or 35gb should
+suffice. At any rate you can always go back and create a new VM with
+more storage especially because installing Debian on a VM takes
+only approximately 5 minutes.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;3-1-creating-the-vm-network-mode-bridged&quot;&gt;3.1. Creating the VM: network mode bridged&lt;&#x2F;h3&gt;
+&lt;p&gt;Make sure to enable network mode bridged so that your VM is visible
+both within the host and out in your network. UTM defaults to &lt;code&gt;shared network&lt;&#x2F;code&gt; which, in my experience, prevents the VM from accessing the
+internet.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;4-automate-vm-provisioning-or-download-the-qemu-image-ready-to-go&quot;&gt;4. Automate VM provisioning or download the QEMU image ready to go&lt;&#x2F;h2&gt;
+&lt;p&gt;I already prepared a QEMU image which you can download &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1GMVEVIncExAV2fRbDrkjrc8kgYHglhsU&#x2F;view?usp=drive_link&quot;&gt;here&lt;&#x2F;a&gt;, by using this image you can skip the provisioning part.&lt;&#x2F;p&gt;
+&lt;p&gt;If you&#x27;re a security freak like myself you probably feel uncomfortable
+using such a pre-baked image and will run the
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.ansible.com&#x2F;#get_started&quot;&gt;ansible&lt;&#x2F;a&gt; playbook below to
+provision a new VM because the playbook code is pretty straightforward
+and can be inspected both before and during the provisioning.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;4-1-clone-the-ansible-project&quot;&gt;4.1. Clone the ansible project&lt;&#x2F;h3&gt;
+&lt;p&gt;The project is in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;gabrielfalcao&#x2F;rust-cross-compilation-qemu-vm-ansible&quot;&gt;GitHub&lt;&#x2F;a&gt; and you can clone with:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; clone https:&#x2F;&#x2F;github.com&#x2F;gabrielfalcao&#x2F;rust-cross-compilation-qemu-vm-ansible.git&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;4-2-install-uv&quot;&gt;4.2. Install UV&lt;&#x2F;h3&gt;
+&lt;p&gt;This is one of the few manual steps you must execute, in order to
+install and run ansible in the project above you need to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.astral.sh&#x2F;uv&#x2F;getting-started&#x2F;installation&#x2F;&quot;&gt;install UV&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;4-3-run-the-vm-and-configure-the-inventory&quot;&gt;4.3. Run the vm and configure the inventory&lt;&#x2F;h3&gt;
+&lt;p&gt;Log into the newly created VM and gather the IP address with the command below:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;ip&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; addr&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt; grep&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; inet&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;4-4-edit-hosts-yaml&quot;&gt;4.4. Edit hosts.yaml&lt;&#x2F;h3&gt;
+&lt;p&gt;Replace the ip address with the one obtained in step 4.3.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;all&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;  hosts&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;    vm&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;      ansible_host&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 192.168.8.222&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt; # REPLACE THIS UP ADDR&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;      ansible_user&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; debian&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;      ansible_password&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; ok&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;      ## optional, use your own ssh key below, or comment&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;      ## the code.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;      ##&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;      ## Ansible will use username&#x2F;password authentication&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;      ## which appears to be the only choice in a fresh Debian&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;      ## installation.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;      ansible_ssh_private_key_file&lt;&#x2F;span&gt;&lt;span&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; ~&#x2F;.ssh&#x2F;id_ed25519&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;      ##&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;4-5-provision-the-machine&quot;&gt;4.5. Provision the machine&lt;&#x2F;h3&gt;
+&lt;p&gt;Run the command below from the directory where you cloned the repo.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt;make deploy&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;&#x2F;strong&gt;
+The &lt;code&gt;Makefile&lt;&#x2F;code&gt; already summons uv to create a new virtual python
+environment, install ansible and run the provisioning. It&#x27;s all pretty
+straightforward make code which you should be able to inspect effortlessly.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;5-compile-rust-code-to-mips&quot;&gt;5. Compile rust code to mips&lt;&#x2F;h3&gt;
+&lt;p&gt;You can test if everything worked by accessing the VM via SSH. Create
+a new rust project and run the build with the commands below:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;cargo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; new test-crossbuild&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;cargo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; cross build&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; --target=mipsel-unknown-linux-musl&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;6-heavy-lifting-done&quot;&gt;6. Heavy lifting done&lt;&#x2F;h3&gt;
+&lt;p&gt;Depending on the complexity of the project, you might need to tweak
+RUSTFLAGS.  I might write follow-up blog posts covering such minutiae
+tweaks, but the steps in this tutorial and the ansible provisioning
+already cover all the heavy lifting of having an environment to work
+with.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;6-1-where-to-tweak&quot;&gt;6.1. Where to tweak&lt;&#x2F;h4&gt;
+&lt;p&gt;The ansible provisioning installs rust at &#x2F;opt&#x2F;rust, so
+&lt;strong&gt;&lt;code&gt;CARGO_HOME&lt;&#x2F;code&gt;&lt;&#x2F;strong&gt; is &lt;code&gt;&#x2F;opt&#x2F;rust&#x2F;cargo&lt;&#x2F;code&gt;, &lt;strong&gt;&lt;code&gt;RUSTUP_HOME&lt;&#x2F;code&gt;&lt;&#x2F;strong&gt; is
+&lt;code&gt;&#x2F;opt&#x2F;rust&#x2F;rustup&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Environment variables are set in two places:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&#x2F;etc&#x2F;environment&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&#x2F;etc&#x2F;bash.bashrc&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Cargo config is at: &lt;code&gt;&#x2F;opt&#x2F;rust&#x2F;cargo&#x2F;config.toml&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;enjoy&quot;&gt;Enjoy&lt;&#x2F;h3&gt;
+&lt;p&gt;I&#x27;ve spend enough time trying to get the details write for the kind of
+embedded Rust work I&#x27;ve been doing in my free time and wish I had
+found an automated solution like the one in this blog post. So I hope
+I am helping people save their time.&lt;&#x2F;p&gt;
+&lt;p&gt;Cheers, and Happy Hacking!&lt;&#x2F;p&gt;
+&lt;!-- ################# --&gt;
+&lt;!-- ## Compile JAQ ## --&gt;
+&lt;!-- ################# --&gt;
+&lt;!--                   --&gt;
+&lt;!-- ```shell --&gt;
+&lt;!-- export RUSTFLAGS=&quot;-latomic&quot; --&gt;
+&lt;!-- cargo cross build --target=mipsel-unknown-linux-gnu --&gt;
+&lt;!-- ``` --&gt;
+</content>
+        
+    </entry>
+</feed>

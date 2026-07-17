@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - jaq</title>
+    <subtitle>Blog of Gabriel Falcão G. DeMoura, author of python open source projects HTTPretty, Sure. Original author of Guake Terminal and several other open source projects in the programming languages: Rust, Python, Typescript, Javascript and more. Gabriel Falcão G. DeMoura is also a music producer known by the moniker: Wave Mandala. He is also a blender artist and plugin-maker.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://gabrielfalcao.github.io/blog/tags/jaq/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://gabrielfalcao.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-07-17T00:00:00+00:00</updated>
+    <id>https://gabrielfalcao.github.io/blog/tags/jaq/atom.xml</id>
+    <entry xml:lang="en">
+        <title>You should Switch From jq to jaq</title>
+        <published>2026-07-17T00:00:00+00:00</published>
+        <updated>2026-07-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://gabrielfalcao.github.io/blog/you-should-switch-from-jq-to-jaq/"/>
+        <id>https://gabrielfalcao.github.io/blog/you-should-switch-from-jq-to-jaq/</id>
+        
+        <content type="html" xml:base="https://gabrielfalcao.github.io/blog/you-should-switch-from-jq-to-jaq/">&lt;p&gt;Every software engineer probably already knows and uses
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;jqlang.org&#x2F;&quot;&gt;jq&lt;&#x2F;a&gt; for parsing and transforming json files. JQ
+is a great and powerful tool. It&#x27;s only limitation is that it only works for JSON files.&lt;&#x2F;p&gt;
+&lt;p&gt;This is where &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;crates.io&#x2F;crates&#x2F;jaq&quot;&gt;&lt;code&gt;jaq&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; comes in handy.&lt;&#x2F;p&gt;
+&lt;p&gt;Jaq covers almost all, if not all features from JQ, but works not only
+with JSON, but with JSON, YAML, CBOR, TOML, and XML.&lt;&#x2F;p&gt;
+&lt;p&gt;So, switching from &lt;code&gt;jq&lt;&#x2F;code&gt; to &lt;code&gt;jaq&lt;&#x2F;code&gt; is a no-brainer.&lt;&#x2F;p&gt;
+&lt;p&gt;Even you&#x27;re not a rust developer it is a good idea to install rust so
+that you can install &lt;code&gt;jaq&lt;&#x2F;code&gt; from source:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;cargo&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; install jaq&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If you&#x27;re not a security freak like myself who worries perhaps a bit
+too much about using pre-compiled binaries, you can download the
+latest (as to the time of this writing) pre-build release
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;01mf02&#x2F;jaq&#x2F;releases&#x2F;tag&#x2F;v3.1.0&quot;&gt;v.3.1.0&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Now simple replace your calls to &lt;code&gt;jq&lt;&#x2F;code&gt; to &lt;code&gt;jaq&lt;&#x2F;code&gt;, works wonders with TOML and YAML.&lt;&#x2F;p&gt;
+&lt;p&gt;For instance, to list the dependencies of a rust crate:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;jaq&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; -r&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; &amp;#39;.dependencies&amp;#39; Cargo.toml&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+        
+    </entry>
+</feed>

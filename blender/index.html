@@ -1,0 +1,28 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><meta content="Blog of Gabriel Falcão G. DeMoura, author of python open source projects HTTPretty, Sure. Original author of Guake Terminal and several other open source projects in the programming languages: Rust, Python, Typescript, Javascript and more. Gabriel Falcão G. DeMoura is also a music producer known by the moniker: Wave Mandala. He is also a blender artist and plugin-maker." name=description><title> | Blender Projects</title><link href="https://gabrielfalcao.github.io/style.css?h=57dcefe6d6197def0bc3" rel=stylesheet><link title=" - Atom Feed" href=https://gabrielfalcao.github.io/atom.xml rel=alternate type=application/atom+xml><meta content=Gabriel property=profile:first_name><meta content="Falcão G. DeMoura" property=profile:last_name><meta content=gabrielfalcao property=profile:username><meta content=male property=profile:gender><meta content=berlin.jpeg property=og:image><meta content=avatars-000296788270-31yr5r-t1080x1080.jpg property=og:image><meta content=berlin-tiles.jpeg property=og:image><meta content=pixel-art-2017.png property=og:image><meta content=pixel-art-ny-eve.png property=og:image><meta content=pixel-art-berlin.png property=og:image><meta content=norwegerstrasse.jpeg property=og:image><meta content=cgc-skull-badge.jpg property=og:image><meta content=cgc-skull-badge-cropped.jpg property=og:image><meta content=g-cleft-sq.png property=og:image><meta content=avatar-mohawk-right-a-front.png property=og:image><meta content=mandala-flying-concrete.png property=og:image><meta content=85057529_288x288.jpeg property=og:image><body><header class=space><a href=https://gabrielfalcao.github.io>← Home</a></header><main><h1>Blender Projects</h1><div class=space></div><h2 id=object-center-symmetry>Object Center & Symmetry</h2><iframe allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" src="https://player.vimeo.com/video/1044429075?h=1e68b395d6" allowfullscreen frameborder=0 height=360 referrerpolicy=strict-origin-when-cross-origin title=vimeo-player width=640></iframe><p>Blender Add-On with 2 specific features:<ul><li><p>Clear object location above surface (<code>Ctrl+T</code>): Similar to <code>Clear Location</code> (<code>Alt+G</code>) but places the object above the Z axis and at the X and Y axis based on the objects X anx Y dimensions, that is, <code>0 + (X / 2)</code> and <code>0 + (Y / 2)</code>.</p><li><p>Distribute Objects Along Axis (<code>Command+Shift+D</code>)</p><li><p>Distribute Objects Along the X Axis (<code>Ctrl+Alt+X</code>)</p><li><p>Distribute Objects Along the Y Axis (<code>Ctrl+Alt+Y</code>)</p><li><p>Distribute Objects Along the Z Axis (<code>Ctrl+Alt+Z</code>)</p><li><p>Set Origin to Geometry and Reset 3D Cursor (<code>Alt+O</code>)</p><li><p>Apply Active Material to Selected Objects (<code>Command+Shift+M</code>)</p><li><p>Cleanup Unused Materials (<code>Shift+Alt+M</code>)</p></ul><h4 id=demo>DEMO</h4><p><a href=https://player.vimeo.com/video/1044429075 rel=noopener target=_blank>https://player.vimeo.com/video/1044429075</a><h4 id=download>Download</h4><p><a href="https://extensions.blender.org/download/sha256:8386b07cd4f429d2dc705cee017cdc14040d7d001bf1d681f8dec16f5b8a7d5f/add-on-object-center-and-symmetry-v0.0.1.zip?repository=%2Fapi%2Fv1%2Fextensions%2F&blender_version_min=4.3.0" rel=noopener target=_blank>download</a><h4 id=goto>Goto</h4><ul><li><a href=/>index</a><li><a href=/blog/>blog</a><li><a href=/music/>music</a></ul></main><div class=dark-mode-buttons><button class=dark-mode-button id=dark-mode-on><img alt="Dark mode" aria-label="dark mode toggle" title="Dark mode" height=24 src=https://gabrielfalcao.github.io/dark_mode.svg width=24></button><button class=dark-mode-button id=dark-mode-off><img alt="Light mode" aria-label="light mode toggle" title="Light mode" height=24 src=https://gabrielfalcao.github.io/light_mode.svg width=24></button></div><script>const cls = document.querySelector("html").classList;
+        const sessionTheme = sessionStorage.getItem("theme");
+
+        function setDark() {
+            cls.add("dark-mode");
+            cls.remove("light-mode");
+            sessionStorage.setItem("theme", "dark");
+        }
+        function setLight() {
+            cls.add("light-mode");
+            cls.remove("dark-mode");
+            sessionStorage.setItem("theme", "light");
+        }
+
+        if (sessionTheme === "dark") {
+            setDark();
+        } else if (sessionTheme === "light") {
+            setLight();
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setDark();
+        }
+
+        document.getElementById("dark-mode-on").addEventListener("click", function(e) {
+            setDark();
+        });
+        document.getElementById("dark-mode-off").addEventListener("click", function(e) {
+            setLight();
+        });</script><noscript><style>.dark-mode-buttons{display:none}</style></noscript>
