@@ -18,13 +18,14 @@ generate_robots_txt = true
 theme = "hook"
 
 
-
-taxonomies = [
-  {name = "tags", feed = true}, # each tag will have its own feed
-  {name = "tags"}, # you can have taxonomies with the same name in multiple languages
-  {name = "categories", paginate_by = 6},  # 6 items per page for a term
-]
-taxonomy_root = "blog"
+# [taxonomies]
+# taxonomies = [
+#   {name = "tags", feed = true}, # each tag will have its own feed
+#   {name = "tags", paginate_by = 6},
+#   {name = "categories"},  # 6 items per page for a term
+#   {name = "categories", paginate_by = 6},  # 6 items per page for a term
+# ]
+# taxonomy_root = "blog"
 
 # https://www.google.com/search?q=example+usage+of+seo+tags+user+profile&num=10&sca_esv=76af09d4a1c69f5c&sxsrf=APpeQnue6Irc3Q22vClBoHwLYayNeK8FRA%3A1783037700649&ei=BP9Gas2PJ83C5OUP67GW4A8&biw=1440&bih=788&ved=0ahUKEwjNoZKGnbWVAxVNIbkGHeuYBfwQ4dUDCBI&uact=5&oq=example+usage+of+seo+tags+user+profile&gs_lp=Egxnd3Mtd2l6LXNlcnAiJmV4YW1wbGUgdXNhZ2Ugb2Ygc2VvIHRhZ3MgdXNlciBwcm9maWxlMgUQABjvBTIFEAAY7wUyBRAAGO8FMgUQABjvBTIFEAAY7wVItDBQ-A9Y_C5wAXgBkAEAmAGdAaABsRGqAQQwLjE3uAEDyAEA-AEBmAIKoALWCcICChAAGEcY1gQYsAPCAggQABiABBiiBJgDAIgGAZAGCJIHAzEuOaAH4DayBwMwLjm4B8wJwgcFMC4xLjnIByeACAE&sclient=gws-wiz-serp
 # https://profilegrid.co/how-setup-wordpress-seo-for-your-user-profiles/
@@ -46,7 +47,7 @@ external_links_no_referrer = false
 # and enhances security when a user navigates to an external link
 
 
-external_links_external = false
+external_links_external = true
 # According to the MDN Web Docs rel attribute reference, the rel="external" attribute indicates that the referenced
 # document is not part of the current site
 

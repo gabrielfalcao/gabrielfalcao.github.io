@@ -11,9 +11,12 @@ title = "Hook"
 description = "Hook is a theme for Zola"
 
 taxonomies = [
-    { name = "categories" },
-    { name = "tags" },
+  {name = "tags", feed = true}, # each tag will have its own feed
+  {name = "tags"}, # you can have taxonomies with the same name in multiple languages
+  {name = "categories", paginate_by = 6},  # 6 items per page for a term
 ]
+taxonomy_root = "blog"
+
 
 [markdown]
 

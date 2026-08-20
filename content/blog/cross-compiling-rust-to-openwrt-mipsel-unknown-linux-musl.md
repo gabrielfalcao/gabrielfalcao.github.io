@@ -4,9 +4,6 @@ slug = "cross-compiling-rust-to-openwrt-mipsel-unknown-linux-musl-on-macos-sequo
 description = "free tutorial and code to get a virtual machine up and running on Mac OS fully automated via ansible"
 date = "2026-07-17"
 update_date = "2026-07-17"
-[taxonomies]
-tags = ["guide", "tutorial", "ansible", "osx", "mac os", "virtualization", "openwrt", "rust", "mipsel-unknown-linux-musl", "rust-embedded" ]
-
 +++
 
 

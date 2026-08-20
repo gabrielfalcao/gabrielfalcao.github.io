@@ -2,9 +2,6 @@
 title = "You should Switch From jq to jaq"
 slug = "you-should-switch-from-jq-to-jaq"
 date = "2026-07-17"
-
-[taxonomies]
-tags = ["sed", "jq", "rust", "jaq", "parsing", "SRE", "command-line"]
 +++
 
 Every software engineer probably already knows and uses
