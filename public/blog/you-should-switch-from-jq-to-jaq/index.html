@@ -1,0 +1,36 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><meta content="Blog of Gabriel Falcão, author of python open source projects HTTPretty, Sure. Original author of Guake Terminal and several other open source projects in the programming languages: Rust, Python, Typescript, Javascript and more." name=description><title> | You should Switch From jq to jaq</title><link href="https://gabrielfalcao.github.io/style.css?h=57dcefe6d6197def0bc3" rel=stylesheet><link title=" - Atom Feed" href=https://gabrielfalcao.github.io/atom.xml rel=alternate type=application/atom+xml><meta content=Gabriel property=profile:first_name><meta content="Falcão G. DeMoura" property=profile:last_name><meta content=gabrielfalcao property=profile:username><meta content=male property=profile:gender><meta content=berlin.jpeg property=og:image><meta content=avatars-000296788270-31yr5r-t1080x1080.jpg property=og:image><meta content=berlin-tiles.jpeg property=og:image><meta content=pixel-art-2017.png property=og:image><meta content=pixel-art-ny-eve.png property=og:image><meta content=pixel-art-berlin.png property=og:image><meta content=norwegerstrasse.jpeg property=og:image><meta content=cgc-skull-badge.jpg property=og:image><meta content=cgc-skull-badge-cropped.jpg property=og:image><meta content=g-cleft-sq.png property=og:image><meta content=avatar-mohawk-right-a-front.png property=og:image><meta content=mandala-flying-concrete.png property=og:image><meta content=85057529_288x288.jpeg property=og:image><script src="https://www.googletagmanager.com/gtag/js?id=G-3TDXN3PEFZ" async></script><script>window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'G-3TDXN3PEFZ');</script><body><header class=space><a href=https://gabrielfalcao.github.io>← Home</a></header><main><h1>You should Switch From jq to jaq</h1><p class="secondary small">17 July, 2026<div class=space></div><p>Every software engineer probably already knows and uses <a href=https://jqlang.org/ rel=noopener target=_blank>jq</a> for parsing and transforming json files. JQ is a great and powerful tool. It's only limitation is that it only works for JSON files.<p>This is where <a href=https://crates.io/crates/jaq rel=noopener target=_blank><code>jaq</code></a> comes in handy.<p>Jaq covers almost all, if not all features from JQ, but works not only with JSON, but with JSON, YAML, CBOR, TOML, and XML.<p>So, switching from <code>jq</code> to <code>jaq</code> is a no-brainer.<p>Even you're not a rust developer it is a good idea to install rust so that you can install <code>jaq</code> from source:<pre class=giallo style=color:#f8f8f2;background-color:#272822><code data-lang=shellscript><span class=giallo-l><span style=color:#a6e22e>cargo</span><span style=color:#e6db74> install jaq</span></span></code></pre><p>If you're not a security freak like myself who worries perhaps a bit too much about using pre-compiled binaries, you can download the latest (as to the time of this writing) pre-build release <a href=https://github.com/01mf02/jaq/releases/tag/v3.1.0 rel=noopener target=_blank>v.3.1.0</a><p>Now simple replace your calls to <code>jq</code> to <code>jaq</code>, works wonders with TOML and YAML.<p>For instance, to list the dependencies of a rust crate:<pre class=giallo style=color:#f8f8f2;background-color:#272822><code data-lang=shellscript><span class=giallo-l><span style=color:#a6e22e>jaq</span><span style=color:#ae81ff> -r</span><span style=color:#e6db74> '.dependencies' Cargo.toml</span></span></code></pre></main><div class=dark-mode-buttons><button class=dark-mode-button id=dark-mode-on><img alt="Dark mode" aria-label="dark mode toggle" title="Dark mode" height=24 src=https://gabrielfalcao.github.io/dark_mode.svg width=24></button><button class=dark-mode-button id=dark-mode-off><img alt="Light mode" aria-label="light mode toggle" title="Light mode" height=24 src=https://gabrielfalcao.github.io/light_mode.svg width=24></button></div><script>const cls = document.querySelector("html").classList;
+        const sessionTheme = sessionStorage.getItem("theme");
+
+        function setDark() {
+            cls.add("dark-mode");
+            cls.remove("light-mode");
+            sessionStorage.setItem("theme", "dark");
+        }
+        function setLight() {
+            cls.add("light-mode");
+            cls.remove("dark-mode");
+            sessionStorage.setItem("theme", "light");
+        }
+
+        if (sessionTheme === "dark") {
+            setDark();
+        } else if (sessionTheme === "light") {
+            setLight();
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setDark();
+        }
+
+        document.getElementById("dark-mode-on").addEventListener("click", function(e) {
+            setDark();
+        });
+        document.getElementById("dark-mode-off").addEventListener("click", function(e) {
+            setLight();
+        });</script><script src="https://www.googletagmanager.com/gtag/js?id=G-3TDXN3PEFZ" async></script><script>window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'G-3TDXN3PEFZ');</script><noscript><style>.dark-mode-buttons{display:none}</style></noscript>
