@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://gabrielfalcao.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://gabrielfalcao.github.io/blender/</loc>
+    </url>
+    <url>
+        <loc>https://gabrielfalcao.github.io/blog/</loc>
+    </url>
+    <url>
+        <loc>https://gabrielfalcao.github.io/blog/cross-compiling-rust-to-openwrt-mipsel-unknown-linux-musl-on-macos-sequoia-with-utm-virtual-machine/</loc>
+        <lastmod>2026-07-17</lastmod>
+    </url>
+    <url>
+        <loc>https://gabrielfalcao.github.io/blog/you-should-switch-from-jq-to-jaq/</loc>
+        <lastmod>2026-07-17</lastmod>
+    </url>
+    <url>
+        <loc>https://gabrielfalcao.github.io/music/</loc>
+    </url>
+</urlset>
