@@ -57,13 +57,6 @@ title = "Music"
 > [download white-noise-machine-wave-mandala](/ableton-packs/white-noise-machine-wave-mandala.adg)
 
 
-
-
-
-
-
-
-
 #### Goto
 
 - [index](/)

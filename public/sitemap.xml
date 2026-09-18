@@ -14,12 +14,11 @@
     </url>
     <url>
         <loc>https://gabrielfalcao.github.io/blog/cross-compiling-rust-to-openwrt-mipsel-unknown-linux-musl-on-macos-sequoia-with-utm-virtual-machine/</loc>
-    </url>
-    <url>
-        <loc>https://gabrielfalcao.github.io/blog/parsing-ansible-log-with-sed-and-jaq/</loc>
+        <lastmod>2026-07-17</lastmod>
     </url>
     <url>
         <loc>https://gabrielfalcao.github.io/blog/you-should-switch-from-jq-to-jaq/</loc>
+        <lastmod>2026-07-17</lastmod>
     </url>
     <url>
         <loc>https://gabrielfalcao.github.io/music/</loc>
