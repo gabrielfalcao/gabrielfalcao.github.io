@@ -4,7 +4,7 @@ title = "Music"
 
 # wavemandala.bandcamp.com/dashboard
 
-<iframe scrolling="no" style="border: 0;width: 100%;height: 50px;" src="https://bandcamp.com/band_follow_button_deluxe/79613945"></iframe>
+<iframe scrolling="no" style="border: 0;width: 100%;height: 33px;" src="https://bandcamp.com/band_follow_button_classic/79613945"></iframe>
 <br />
 <iframe style="border: 0; width: 350px; height: 654px;" src="https://bandcamp.com/EmbeddedPlayer/album=2931842824/size=large/bgcol=333333/linkcol=e99708/transparent=true/" seamless><a href="https://wavemandala.bandcamp.com/album/schizophrenia">Schizophrenia by Wave Mandala</a></iframe>
 
