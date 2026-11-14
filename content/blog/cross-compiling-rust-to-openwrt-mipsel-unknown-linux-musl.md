@@ -2,8 +2,6 @@
 title = "Cross Compiling Rust To openwrt `mipsel-unknown-linux-musl` on Mac OS Sequoia with UTM virtual machine"
 slug = "cross-compiling-rust-to-openwrt-mipsel-unknown-linux-musl-on-macos-sequoia-with-utm-virtual-machine"
 description = "free tutorial and code to get a virtual machine up and running on Mac OS fully automated via ansible"
-date = "2026-07-17"
-update_date = "2026-07-17"
 +++
 
 

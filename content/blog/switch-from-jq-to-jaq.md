@@ -1,7 +1,6 @@
 +++
 title = "You should Switch From jq to jaq"
 slug = "you-should-switch-from-jq-to-jaq"
-date = "2026-07-17"
 +++
 
 Every software engineer probably already knows and uses
